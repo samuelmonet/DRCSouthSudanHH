@@ -1,139 +1,196 @@
-list name	name	label	coding	color
-Consent	1.0	Yes		
-Consent	2.0	No		
-emailconsent	1.0	Yes		
-emailconsent	2.0	No		
-yesno	1.0	Yes		
-yesno	2.0	No		
-testvalid	1.0	Valid		
-testvalid	2.0	Test		
-gender	1.0	Male		
-gender	2.0	Female		
-ageofrespondent	1.0	18-25		
-ageofrespondent	2.0	26-40		
-ageofrespondent	3.0	41-60		
-ageofrespondent	4.0	61+		
-settlement	1.0	Ajuong Thok 		
-settlement	2.0	Pamir		
-settlement	3.0	Host Community		
-rship	1.0	Husband		
-rship	2.0	Wife		
-rship	3.0	Brother 		
-rship	4.0	Sister		
-rship	5.0	Co-wife		
-rship	6.0	Son		
-rship	7.0	Daughter		
-rship	8.0	Other relative		
-marital	1.0	Married	1.0	Green
-marital	2.0	Single	0.0	Yellow
-marital	3.0	Divorced	0.0	Blue
-marital	4.0	Widowed	0.0	Grey
-educ	1.0	Some Primary	1.0	darkred
-educ	2.0	Completed primary	1.5	red
-educ	3.0	Some secondary	2.0	orange
-educ	4.0	Completed secondary	2.5	Yellow
-educ	5.0	Some university	3.0	lightgreen
-educ	6.0	Completed university	3.5	green
-educ	7.0	Graduate degree	4.0	darkgreen
-educ	8.0	No education	0.0	black
-educ	9.0	Vocational training	2.0	grey
-employment	1.0	Employed	1.0	Green
-employment	2.0	Unemployed	0.0	red
-employment	3.0	Self employed	1.0	Blue
-income_source	1.0	Land cultivation		Yellow
-income_source	2.0	Livestock		brown
-income_source	3.0	Small scale trade		blue
-income_source	4.0	Aid		red
-income_source	5.0	Remittance		
-income_source		None		darkred
-income_source	6.0	Casual employment		grey
-income_source	7.0	Formal employment		darkgrey
-income_source	8.0	Don't know		black
-income_source	9.0	I don't wish to answer		black
-income_source	10.0	Other(specify)		purple
-income_amount	1.0	0 SSP		
-income_amount	2.0	0-100 SSP		
-income_amount	3.0	101-300 SSP 		
-income_amount	4.0	301-500 SSP		
-income_amount	5.0	>500 SSP		
-people	1.0	2 to 4		
-people	2.0	5 to 6		
-people	3.0	7 to 10		
-people	4.0	>11		
-residency	1.0	IDP	-1.0	Orange
-residency	2.0	Returnee IDP	0.0	Grey
-residency	3.0	Returnee refugee	0.0	Blue
-residency	4.0	Host Community	1.0	Green
-flee_reason	1.0	Drought		Yellow
-flee_reason	2.0	Lack of food		orange
-flee_reason	3.0	Floods		darkblue
-flee_reason	4.0	Conflict		red
-flee_reason	5.0	Lack of water		blue
-flee_reason	6.0	Other		grey
-period	1.0	1-3 months	0.5	red
-period	2.0	4-6 months	1.0	orange
-period	3.0	About 1 year	2.0	Yellow
-period	4.0	1-2 years	3.0	lightgreen
-period		0	0.0	grey
-period	5.0	Over 2 years	4.0	Green
-month	1.0	January		
-month	2.0	February		
-month	3.0	March		
-month	4.0	April		
-month	5.0	May		
-month	6.0	June		
-month	7.0	July		
-month	8.0	August		
-month	9.0	September		
-month	10.0	October		
-month	11.0	November		
-month	12.0	December		
-disp_times	1.0	Only one movement from the place of origin and now	1.0	Green
-disp_times	2.0	Two or more movement from the place of origin and now	2.0	red
-disp_times	3.0	Don’t remember	888.0	grey
-disp_times	4.0	Don’t want to answer	888.0	grey
-vulnerable	1.0	Child at risk		
-vulnerable	2.0	Unaccompanied or separated child		
-vulnerable	3.0	Woman at risk		
-vulnerable	4.0	Older person at risk		
-vulnerable	5.0	Single parent or caregiver		
-vulnerable	6.0	Household with person with physical and mental disability e.g., blind, deaf. 		
-vulnerable	7.0	Serious medical condition                 		
-vulnerable	8.0	Do not want to declare.		
-year	1.0	2015		
-year	2.0	2016		
-year	3.0	2017		
-year	4.0	2018		
-year	5.0	2019		
-course	1.0	Leathercraft		
-course	2.0	 Garment making (tailoring)		
-course	3.0	 Building and construction		
-course	4.0	 Welding (Metal fabrication)		
-course	5.0	 Plumbing		
-course	6.0	Literacy and numeracy		
-course	7.0	 Furniture		
-course	8.0	Electrical		
-ynd	1.0	Yes		
-ynd	2.0	No		
-ynd	3.0	Don't know		
-year2	1.0	2015		
-year2	2.0	2016		
-year2	3.0	2017		
-year2	4.0	2018		
-year2	5.0	2019		
-market	1.0	Sudan		
-market	2.0	Yida		
-market	3.0	Juba		
-market	4.0	Ajuok Thok Market		
-market	5.0	Pamir Market		
-market	6.0	Jamjang Market		
-change	1.0	Increased	1.0	Green
-change	2.0	Remained the same	0.0	grey
-change	3.0	Decreased	-1.0	red
-change2	1.0	Signiﬁcantly increase	2.0	Green
-change2	2.0	Slightly increase	1.0	lightgreen
-change2	3.0	No change	0.0	grey
-change2	4.0	Slightly decrease	-1.0	Yellow
-change2	5.0	Signiﬁcantly decrease	-2.0	red
-region	1.0	Ajuong Thok	1.0	grey
-region	2.0	Bentiu	0.0	blue
+list name	name	label	cf	coding	color	Unnamed: 6
+Consent	1.0	Yes				
+Consent	2.0	No				
+yesno	1.0	Yes				
+yesno	2.0	No				
+testvalid	1.0	Valid				
+testvalid	2.0	Test				
+gender	1.0	Male		1.0	Blue	
+gender	2.0	Female		0.0	Pink	
+list	1.0	List of beneficiaries to be interviewed 				
+list	2.0	Replacement list				
+phonestatus	1.0	Phone not ringing				
+phonestatus	2.0	Phone ringing but not answered.				
+phonestatus	3.0	Respondent answered but refused the interview 				
+phonestatus	4.0	Respondent answered and accepted the interview				
+marital	1.0	Married		1.0	Green	
+marital	2.0	Single		0.0	Blue	
+marital	3.0	Divorced		0.0	Pink	
+marital	4.0	Widower		0.0	Black	
+residency	1.0	IDP		-1.0		
+residency	2.0	Host Community		1.0		
+residency	3.0	Returnee IDP		0.0		
+residency	4.0	Returnee refugee		0.0		
+residency	5.0	Refugee		-1.0		
+flee_reason	1.0	Drought			Yellow	
+flee_reason	2.0	Lack of food			lightgrey	
+flee_reason	3.0	Floods			blue	
+flee_reason	4.0	Conflict			red	
+flee_reason	5.0	Lack of water			brown	
+flee_reason	6.0	Other			grey	
+period	1.0	1-3 months		0.5	lightgreen	
+period	2.0	4-6 months		1.0	Yellow	
+period	3.0	About 1 year		2.0	orange	
+period	4.0	1-2 years		3.0	red	
+period		Not IDP		0.0	green	
+period	5.0	Over 2 years		4.0	darkgrey	
+month	1.0	January				
+month	2.0	February				
+month	3.0	March				
+month	4.0	April				
+month	5.0	May				
+month	6.0	June				
+month	7.0	July				
+month	8.0	August				
+month	9.0	September				
+month	10.0	October				
+month	11.0	November				
+month	12.0	December				
+benficiaryresidence	1.0	Jamjang				
+benficiaryresidence	3.0	Bentiu				
+benficiaryresidence	4.0	Malakal				
+benficiaryresidence	5.0	Aburoc				
+rltptohhhead	1.0	Husband				
+rltptohhhead	2.0	Wife				
+rltptohhhead	3.0	Brother				
+rltptohhhead	4.0	Sister				
+rltptohhhead	5.0	Co-wife				
+rltptohhhead	6.0	Son				
+rltptohhhead	7.0	Daughter				
+rltptohhhead	8.0	Other relative				
+educ	1.0	Some Primary		1.0	darkred	
+educ	2.0	Completed primary		1.5	red	
+educ	3.0	Some secondary		2.0	orange	
+educ	4.0	Completed secondary		2.5	Yellow	
+educ	5.0	Some university		3.0	lightgreen	
+educ	6.0	Completed university		3.5	green	
+educ	7.0	Graduate degree		4.0	darkgreen	
+educ	8.0	No education		0.0	darkgrey	
+educ	9.0	Vocational training		2.0	grey	
+employment	1.0	Employed		1.0	Green	
+employment	2.0	Unemployed		0.0	red	
+employment	3.0	Self employed		1.0	Blue	
+primaryincome	1.0	Land cultivation				
+primaryincome	2.0	Livestock				
+primaryincome	3.0	Small scale trade				
+primaryincome	4.0	Aid				
+primaryincome	5.0	Remittance				
+primaryincome	6.0	Casual employment				
+primaryincome	7.0	Formal employment				
+primaryincome	8.0	Don't know				
+primaryincome	9.0	I don't wish to answer				
+primaryincome	10.0	Other, please specify				
+disp_times	1.0	Only one movement from the place of origin and now		1.0	yellow	
+disp_times	2.0	Two or more movement from the place of origin and now		2.0	orange	
+disp_times	3.0	Don’t remember      		888.0	Grey	
+disp_times		0		0.0	Green	
+disp_times	4.0	Don’t want to answer		888.0	black	
+condition	1.0	Child at risk				
+condition	2.0	Unaccompanied or separated child				
+condition	3.0	Woman at risk				
+condition	4.0	Older person at risk				
+condition	5.0	Single parent or caregiver				
+condition	6.0	Household with person with physical and mental disability e.g., blind, deaf. 				
+condition	7.0	Serious medical condition                 				
+condition	8.0	Do not want to declare.				
+hearnews	1.0	DRC staff				
+hearnews	2.0	Friend or family member				
+hearnews	3.0	Community discussions				
+hearnews	4.0	Outreach activities/ posters				
+hearnews	5.0	Community leaders/women groups				
+hearnews	6.0	Local authority/ police				
+hearnews	7.0	Other (please specify)  				
+satistaftion	1.0	High		1.0	Green	
+satistaftion	2.0	Low		-1.0	red	
+satistaftion	3.0	Moderate		0.0	lightgreen	
+trust	1.0	Large extent		1.0	green	???
+trust	2.0	Small extent		0.0	red	???
+trust	3.0	Somewhat		0.25	yellow	???
+trainings	2.0	Psychosocial Support (PSS)				
+trainings	4.0	Life skills training				
+trainings	5.0	Mentorship				
+violesatsi	1.0	Highly satisfied				
+violesatsi	2.0	Somewhat satisfied				
+violesatsi	3.0	Not satisfied      				
+groupindiv	1.0	Individually				
+groupindiv	2.0	Group  				
+trainingsreceived	1.0	Protection mainstreaming				
+trainingsreceived	2.0	Rights of older persons and persons with a disability				
+trainingsreceived	3.0	Basic protection concept and appropriate care and support to PSN during COVID-19 pandemic				
+trainingsreceived	4.0	Other (Specify)				
+beneficial	1.0	Highly beneficial				
+beneficial	2.0	Somewhat beneficial				
+beneficial	3.0	Not beneficial				
+beneficial	4.0	Don’t know				
+agrictrainig	1.0	Training on good modern agricultural practices				
+agrictrainig	2.0	Harvesting and post-harvesting handling 				
+agrictrainig	3.0	Use of agricultural inputs				
+agrictrainig	4.0	Fertilizer application 				
+agrictrainig	5.0	Soil erosion control				
+agrictrainig	6.0	Pest management				
+agrictrainig	7.0	Accounting and trading				
+agrictrainig	8.0	Other (Specify)				
+inputs	1.0	Seedlings				
+inputs	2.0	Fertiliser				
+inputs	3.0	Pesticides				
+inputs	4.0	Farming tools				
+inputs	5.0	Other (Specify)				
+supportrecei	1.0	Gumboots				
+supportrecei	2.0	Sugar				
+supportrecei	3.0	Coffee				
+supportrecei	4.0	T-shirts				
+supportrecei	5.0	Other (Specify)				
+usage	1.0	Buy food				
+usage	2.0	Pay debts				
+usage	3.0	Buy clothes				
+usage	4.0	Buy medicine				
+usage	5.0	Buy water				
+usage	6.0	Buy fuel				
+usage	7.0	Buy cooking gas				
+usage	8.0	Pay school fees/buy uniform and school material				
+usage	9.0	Open a business				
+usage	10.0	Buy livestock				
+usage	11.0	Buy agricultural inputs (seeds, tools, fodder, fertilizer etc.)				
+usage	12.0	Savings				
+usage	13.0	Transport				
+usage	14.0	Pay rent/shelter				
+usage	15.0	Give as a gift/loan to neighbour/relative				
+supportmaterial	1.0	Shoes				
+supportmaterial	2.0	Mosquito nets				
+supportmaterial	3.0	Basins				
+supportmaterial	4.0	Jerry can				
+supportmaterial	5.0	Clothes				
+supportmaterial	6.0	Other (Specify)				
+supportskills	1.0	Beadwork				
+supportskills	2.0	Crocheting				
+supportskills	3.0	Tailoring				
+supportskills	4.0	Fishing				
+supportskills	5.0	Embroidery				
+supportskills	6.0	Hair cutting				
+supportskills	7.0	Hair plaiting				
+supportskills	8.0	Other (Specify)				
+businesstraining	1.0	Book keeping				
+businesstraining	2.0	Marketing				
+businesstraining	3.0	Credit/loan access				
+businesstraining	4.0	Management				
+businesstraining	5.0	Other (specify)				
+businesstraining	6.0	None				
+scale	1.0	Increased		1.0	Green	
+scale	2.0	Remained the same		0.0	grey	
+scale	3.0	Decreased		-1.0	Red	
+feel_leader_transp	1.0	Yes			Green	
+feel_leader_transp	2.0	No			red	
+feel_leader_transp	3.0	Don't know			grey	
+rlptcomm	1.0	Good		1.0	Green	
+rlptcomm	2.0	Poor		-1.0	red	
+rlptcomm	3.0	Moderate		0.0	grey	
+perception	1.0	Signiﬁcantly increase		2.0	Green	
+perception	2.0	Slightly increase		1.0	lightgreen	
+perception	3.0	No change		0.0	grey	
+perception	4.0	Slightly decrease		-1.0	Yellow	
+perception	5.0	Signiﬁcantly decrease		-2.0	red	
+vilage	1.0	Pamir 				
+vilage	2.0	Ajoung Thok 				
+vilage	3.0	Host community   				
+section		FSL+(Respondent profile and Overall perception)		1.0	green	
+section		Protection&CCM+(Respondent profile and Overall perception)		0.0	Blue	

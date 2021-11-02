@@ -33,10 +33,11 @@ st.set_page_config(layout="wide")
 def load_data():
 	data = pd.read_csv('viz.csv',sep='\t')
 	data['flee_reason']=data['flee_reason'].apply(lambda x:'Returnee or Host' if x=='0' else x)
+	data['know_leader']=data['know_leader'].apply(lambda x:'Not IDP' if x=='0' else x)
 	
 	return data
 
-data=load_data()
+datas=load_data()
 
 #st.dataframe(correl)
 #st.write(data.columns)
@@ -120,7 +121,6 @@ def sankey_graph(data,L,height=600,width=1600):
       color = color_links))])
     return fig
 
-@st.cache
 def count2(abscisse,ordonnée,dataf,title='',legendtitle='',xaxis=''):
     
     agg=dataf[[abscisse,ordonnée]].groupby(by=[abscisse,ordonnée]).aggregate({abscisse:'count'}).unstack().fillna(0)
@@ -136,15 +136,17 @@ def count2(abscisse,ordonnée,dataf,title='',legendtitle='',xaxis=''):
         fig = go.Figure()
         #st.write(labels,colors)
         for i in range(len(labels)):
-            if labels[i] in data[ordonnée].unique():
+            if labels[i] in dataf[ordonnée].unique():
                 fig.add_trace(go.Bar(x=x, y=agg[(abscisse,labels[i])], name=labels[i],\
                            marker_color=colors[i].lower(),customdata=agg2[(abscisse,labels[i])],textposition="inside",\
                            texttemplate="%{customdata} %",textfont_color="black"))
         
     else:
-        fig = go.Figure(go.Bar(x=x, y=agg.iloc[:,0], name=agg.columns.tolist()[0][1],marker_color='green'))
+        fig = go.Figure(go.Bar(x=x, y=agg.iloc[:,0], name=agg.columns.tolist()[0][1],marker_color='green',customdata=agg2.iloc[:,0],textposition="inside",\
+                           texttemplate="%{customdata} %",textfont_color="black"))
         for i in range(len(agg.columns)-1):
-            fig.add_trace(go.Bar(x=x, y=agg.iloc[:,i+1], name=agg.columns.tolist()[i+1][1]))
+            fig.add_trace(go.Bar(x=x, y=agg.iloc[:,i+1], name=agg.columns.tolist()[i+1][1],customdata=agg2.iloc[:,i+1],textposition="inside",\
+                           texttemplate="%{customdata} %",textfont_color="black"))
     
     fig.update_layout(barmode='relative', \
                   xaxis={'title':xaxis,'title_font':{'size':18}},\
@@ -155,11 +157,10 @@ def count2(abscisse,ordonnée,dataf,title='',legendtitle='',xaxis=''):
         xanchor="right",
         x=1.01,font=dict(size=18),title=dict(font=dict(size=18))
     ))
-    fig.update_layout(title_text=title)
+    #fig.update_layout(title_text=title)
     
     return fig
 
-@st.cache
 def pourcent2(abscisse,ordonnée,dataf,title='',legendtitle='',xaxis=''):
     
     agg2=dataf[[abscisse,ordonnée]].groupby(by=[abscisse,ordonnée]).aggregate({abscisse:'count'}).unstack().fillna(0)
@@ -174,15 +175,19 @@ def pourcent2(abscisse,ordonnée,dataf,title='',legendtitle='',xaxis=''):
         fig = go.Figure()
         
         for i in range(len(labels)):
-            if labels[i] in data[ordonnée].unique():
+            if labels[i] in dataf[ordonnée].unique():
                 fig.add_trace(go.Bar(x=x, y=agg[(abscisse,labels[i])], name=labels[i],\
                            marker_color=colors[i].lower(),customdata=agg2[(abscisse,labels[i])],textposition="inside",\
                            texttemplate="%{customdata} persons",textfont_color="black"))
         
     else:
-        fig = go.Figure(go.Bar(x=x, y=agg.iloc[:,0], name=agg.columns.tolist()[0][1],marker_color='green'))
+        #st.write(agg)
+        #st.write(agg2)
+        fig = go.Figure(go.Bar(x=x, y=agg.iloc[:,0], name=agg.columns.tolist()[0][1],marker_color='green',customdata=agg2.iloc[:,0],textposition="inside",\
+                           texttemplate="%{customdata} persons",textfont_color="black"))
         for i in range(len(agg.columns)-1):
-            fig.add_trace(go.Bar(x=x, y=agg.iloc[:,i+1], name=agg.columns.tolist()[i+1][1]))
+            fig.add_trace(go.Bar(x=x, y=agg.iloc[:,i+1], name=agg.columns.tolist()[i+1][1],customdata=agg2.iloc[:,i+1],textposition="inside",\
+                           texttemplate="%{customdata} persons",textfont_color="black"))
     
     fig.update_layout(barmode='relative', \
                   xaxis={'title':xaxis,'title_font':{'size':18}},\
@@ -193,7 +198,7 @@ def pourcent2(abscisse,ordonnée,dataf,title='',legendtitle='',xaxis=''):
         xanchor="right",
         x=1.01,font=dict(size=18),title=dict(font=dict(size=18))
     ))
-    fig.update_layout(title_text=title)
+    #fig.update_layout(title_text=title)
     
     return fig
 
@@ -222,84 +227,152 @@ def main():
 	st.sidebar.image(img1,width=200)
 	st.sidebar.title("")
 	st.sidebar.title("")
-	topic = st.sidebar.radio('What do you want to do ?',('Display Machine Learning Results','Display correlations related to questions 37,38, 40 and 41','Display other correlations','Display Wordclouds'))
+	topic = st.sidebar.radio('Select what you want to see?',('General questions','Protection questions','Machine Learning results on questions C31, C32, E1 and E2','Livelihood questions','Wordclouds'))
 	
 	title2,title3 = st.columns([5,2])
 	title3.image(img2)
 	
 	#st.write(questions)
-	#st.write(cat_cols)	
-	if topic=='Display correlations related to questions 37,38, 40 and 41':
+	#st.write(cat_cols)
+	if topic in ['General questions','Protection questions','Livelihood questions']:
 		
-		quest=correl[correl['variable_y'].isin(['change income','change foodsec','change2 LH','change2 food_access'])].copy()
 		title2.title('Correlations uncovered from the database:')
-		title2.title('Focus on questions 37, 38, 40 and 41, related to feeling of improvement thanks to the project')
+		topics={'General questions':'general','Protection questions':'protection','Livelihood questions':'LH'}
+		quest=correl[correl['category']==topics[topic]].copy()
+		if topics[topic]=='protection':
+			data=datas[datas['section']=='Protection&CCM+(Respondent profile and Overall perception)'].copy()
+			title2.title('Protection questions')
+		elif topics[topic]=='LH':
+			data=datas[datas['section']=='FSL+(Respondent profile and Overall perception)'].copy()
+			title2.title('Livelihood questions')
+		else:
+			data=datas.copy()
+			title2.title('General questions')				
 		
 		
-		for var in ['region','flee_reason','gender resp','course','marital']:
+		#st.write(correl)
+		#st.write(quest)
+		
+		
+		
+		for i in range(len(quest)):
 			
-			st.markdown("""---""")
-			st.header(questions[var]['question'])		
+			st.markdown("""---""")		
+			
+			if quest.iloc[i]['graphtype']=='map':
+				
+				st.subheader('Geographical repartition of responses to question:')
+				st.subheader(quest.iloc[i]['description'])
+				
+				dfmap=data[['position longitude','position latitude',quest.iloc[i]['variable_y']]]
+				dfmap['radius']=np.ones(len(dfmap))
+				dfmap['position']=dfmap.apply(lambda row: [row['position longitude'],row['position latitude']],axis=1)
+				
+				caracters=dfmap[quest.iloc[i]['variable_y']].unique().tolist()
+				n=len(caracters)
+				#st.write(caracters)
+				
+				layers=[pdk.Layer('ScatterplotLayer',dfmap[dfmap[quest.iloc[i]['variable_y']]==caracters[k]],\
+				pickable=True,
+    				opacity=0.8,
+    				stroked=True,
+    				filled=True,
+    				auto_highlight=True,
+    				radius_scale=6,
+    				radius_min_pixels=5,
+    				radius_max_pixels=6,\
+				get_position='position',\
+				get_fill_color=[int(k*255/(n-1)),int(255-k*255/(n-1)), 0,180],get_radius="radius",) for k in range(n)]
+				
+				st.pydeck_chart(pdk.Deck(map_style='mapbox://styles/mapbox/light-v9',\
+				initial_view_state=pdk.ViewState(latitude=9.566,longitude=31.678,zoom=15,height=600),\
+				layers=layers,))
+				
+				st.caption('Yes:Green - No:Red')
+				st.write(quest.iloc[i]['description'])
 						
-			if var=='region':
-				st.write('If we look at the region of residence of the respondents:')
-				st.write('We can see that according to all the 4 questions the project has been much more effective in Ajuong Thok than in Pamir')
-			
-					
-				for correlation in quest[quest['variable_x']==var]['variable_y'].unique():
+			elif quest.iloc[i]['variable_x'] in cat_cols or quest.iloc[i]['variable_y'] in cat_cols:
 				
-					st.subheader('Response to question: '+questions[correlation]['question'])
-					col1, col2= st.columns([1,1])
-					col1.plotly_chart(count2(var,correlation,data,xaxis='Region'),use_container_width=True)
-					col2.plotly_chart(pourcent2(var,correlation,data,xaxis='Region'),use_container_width=True)
-					st.write(correl[(correl['variable_x']==var) & (correl['variable_y']==correlation)]['description'].iloc[0])
+				if quest.iloc[i]['variable_x'] in cat_cols:
+					cat,autre=quest.iloc[i]['variable_x'],quest.iloc[i]['variable_y']
+				else:
+					cat,autre=quest.iloc[i]['variable_y'],quest.iloc[i]['variable_x']
+				#st.write('cat: ',cat,' et autre: ',autre)
+						
+				df=pd.DataFrame(columns=[cat,autre])
 				
-			elif var=='flee_reason':
-				st.write('If we look at the reason of displacement of the respondents:')
-				st.write('We can see that all the host and returnees respondent believe that the project will help them on all the diferent aspect and 90% of the IDPs who fled because of lack of food. On the other hand, for those who fled for conflict reason this numbers drops to between 50 and 68% according to the question and to about 40% for those who fled for other reasons.')
+				catcols=[j for j in data.columns if cat in j]
+				cats=[' '.join(i.split(' ')[1:])[:57] for i in catcols]
 				
-				df=data[[var]+['change income','change foodsec','change2 LH','change2 food_access']].copy()
+				for n in range(len(catcols)):
+					ds=data[[catcols[n],autre]].copy()
+					ds=ds[ds[catcols[n]]==1]
+					ds[catcols[n]]=ds[catcols[n]].apply(lambda x: cats[n])
+					ds.columns=[cat,autre]
+					df=df.append(ds)
+				df['persons']=np.ones(len(df))		
+				st.write(df)		
 				
-				for correlation in quest[quest['variable_x']==var]['variable_y'].unique():
-					st.subheader('Response to question: '+questions[correlation]['question'])
-					col1, col2= st.columns([1,1])
-					col1.plotly_chart(count2(var,correlation,df,xaxis='Reason for displacement'),use_container_width=True)
-					col2.plotly_chart(pourcent2(var,correlation,df,xaxis='Reason for displacement'),use_container_width=True)
-					
-			elif var=='gender resp':
-				st.write('Male respondents tend to be slightly more confident in their future thanks to the project than women.')
-			
-					
-				for correlation in quest[quest['variable_x']==var]['variable_y'].unique():
+				#st.write(quest.iloc[i]['graphtype'])
+						
+									
+			else:	
+				df=data[[quest.iloc[i]['variable_x'],quest.iloc[i]['variable_y']]].copy()
+				df['persons']=np.ones(len(df))
 				
-					st.subheader('Response to question: '+questions[correlation]['question'])
-					col1, col2= st.columns([1,1])
-					col1.plotly_chart(count2(var,correlation,data,xaxis='Sex of the respondent'),use_container_width=True)
-					col2.plotly_chart(pourcent2(var,correlation,data,xaxis='Sex of the respondent'),use_container_width=True)
-			
-			elif var=='course':
-				st.write('As observed with machine learning results it seems that the course of tailoring which is by far the most important one has reached its limits:')
-				for correlation in quest[quest['variable_x']==var]['variable_y'].unique():
+			if quest.iloc[i]['graphtype']=='sunburst':
+				st.subheader(quest.iloc[i]['title'])
+				fig = px.sunburst(df.fillna(''), path=[quest.iloc[i]['variable_x'], quest.iloc[i]['variable_y']], values='persons',color=quest.iloc[i]['variable_y'])
+				#fig.update_layout(title_text=quest.iloc[i]['variable_x'] + ' and ' +quest.iloc[i]['variable_y'],font=dict(size=20))
+				st.plotly_chart(fig,size=1000)
 				
-					st.subheader('Response to question: '+questions[correlation]['question'])
-					col1, col2= st.columns([1,1])
-					col1.plotly_chart(count2(var,correlation,data,xaxis='Course taken'),use_container_width=True)
-					col2.plotly_chart(pourcent2(var,correlation,data,xaxis='Course taken'),use_container_width=True)
-								
-			
+			elif quest.iloc[i]['graphtype']=='treemap':
 					
-			else:
-				st.write("Married respondents are more confident that the household's food security will improve because of the project than single and divorced respondents.")
-			
-					
-				for correlation in quest[quest['variable_x']==var]['variable_y'].unique():
+				st.subheader(quest.iloc[i]['title'])
+				fig=px.treemap(df, path=[quest.iloc[i]['variable_x'], quest.iloc[i]['variable_y']], values='persons')
+				#fig.update_layout(title_text=quest.iloc[i]['title'],font=dict(size=20))
+				st.write(quest.iloc[i]['description'])
+				st.plotly_chart(fig,use_container_width=True)
 				
-					st.subheader('Response to question: '+questions[correlation]['question'])
-					col1, col2= st.columns([1,1])
-					col1.plotly_chart(count2(var,correlation,data,xaxis='Marital status'),use_container_width=True)
-					col2.plotly_chart(pourcent2(var,correlation,data,xaxis='Marital status'),use_container_width=True)
+				k=0
+				
 					
+			elif quest.iloc[i]['graphtype']=='violin':
 					
+				st.subheader(quest.iloc[i]['title'])
+				col1,col2=st.columns([1,1])
+				fig = go.Figure()
+				
+				categs = df[quest.iloc[i]['variable_x']].unique()
+				for categ in categs:
+				    fig.add_trace(go.Violin(x=df[quest.iloc[i]['variable_x']][df[quest.iloc[i]['variable_x']] == categ],
+                            		y=df[quest.iloc[i]['variable_y']][df[quest.iloc[i]['variable_x']] == categ],
+                            		name=categ,
+                            		box_visible=True,
+                           			meanline_visible=True,points="all",))
+				fig.update_layout(showlegend=False)
+				fig.update_yaxes(range=[-0.1, df[quest.iloc[i]['variable_y']].max()+1],title=quest.iloc[i]['ytitle'])
+					
+				st.plotly_chart(fig,use_container_width=True)
+				st.write(quest.iloc[i]['description'])
+									
+			elif quest.iloc[i]['graphtype']=='bar':
+					
+				st.subheader(quest.iloc[i]['title'])
+				
+				col1,col2=st.columns([1,1])
+
+				fig1=count2(quest.iloc[i]['variable_x'],quest.iloc[i]['variable_y'],\
+				df,xaxis=quest.iloc[i]['xtitle'])
+				#fig1.update_layout(title_text=quest.iloc[i]['title'],font=dict(size=20),showlegend=True,xaxis_tickangle=45)
+				col1.plotly_chart(fig1,use_container_width=True)
+					
+				fig2=pourcent2(quest.iloc[i]['variable_x'],quest.iloc[i]['variable_y'],\
+				df,xaxis=quest.iloc[i]['xtitle'])
+				#fig2.update_layout(title_text=quest.iloc[i]['title'],font=dict(size=20),showlegend=True,xaxis_tickangle=45)
+				col2.plotly_chart(fig2,use_container_width=True)
+				st.write(quest.iloc[i]['description'])
+				
 					
 			
 	

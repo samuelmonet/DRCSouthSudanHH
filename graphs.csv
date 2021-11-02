@@ -1,23 +1,41 @@
-variable_x	variable_y	description	xtitle	ytitle	legendtitle	title	graphtype
-vulnerable 	income_source	We can see that people with disabled people in the household rely mainly on aid while women at risk only rely on small scale trade				Vulnerabilities and main source of incomes	treemap
-flee_reason	income_source	All those who have fled because of lack of food seem to be farmers who are often among the most vulnerables according to what we can see below 				Reason of displacement and source of incomes	treemap
-flee_reason	HH children	People who got displaced because of lack of food have about twice as many children below 5 as the others.	Reason for displacement	Children below 5		Number of children below 5 and source of incomes	violin
-flee_reason	HH total	They are also about 3 more par house hold than the rest of the respondents		Persons in the household		Total number of people in the household and source of incomes	violin
-flee_reason	vulnerable 	All those who have been displaced because of lack of food and have vulnerable people at home (80 % of them) report having a child at risk in their household				Reason of displacement and vulnerabilities in the household	treemap
-targetting_right	marital	Single and divorced people are not so satisfied with the targetting of the project. While only 2 % of married people are not satisfied 35 % of divorced people and 31 % of single people are not satisfied with this.	In your opinion do you think the right beneficiaries <br>have been receiving support from DRC?		Marital status	Estimation of targetting of beneficiaries according to marital status	bar
-period	educ	It seems that the longer people have been IDP the more they are educated	How long have you been an IDP?		Highest level of education	Highest level of education  and duration of displacement	bar
-region	change income	While in Ajuong Thok 80 % estimate their income has increased since the DRC project they only represent 27 % in Pamir. 					
-flee_reason	change income	The project seems to be particularly effective on returnees and less on IDPs (but more for those having been displaced for lack of food if we look more in details)					
-region	change foodsec	While in Ajuong Thok 80 % estimate that the households food security has increased since the DRC project they only represent 27 % in Pamir. 					
-flee_reason	change foodsec	The project seems to be particularly effective on returnees and less on IDPs (but more for those having been displaced for lack of food if we look more in details)					
-region	change2 LH	While 88 % of the beneficiaries from Ajuong Thok believe their livelihood will improve because of the project, they are only 37 % in Pamir.					
-flee_reason	change2 LH	The project seems to be particularly effective on returnees and less on IDPs (but more for those having been displaced for lack of food if we look more in details)					
-gender resp	change2 LH	Male respondents are more optimistic than female					
-region	change2 food_access	While 88 % of the beneficiaries from Ajuong Thok believe their access to food will increase thanks to the project, they are only 34 % in Pamir.					
-flee_reason	change2 food_access	The project seems to be particularly effective on returnees and less on IDPs (but more for those having been displaced for lack of food if we look more in details)					
-gender resp	change2 food_access	Male respondents are more optimistic than female					
-marital	change2 food_access	Married people tends to have more hope the project will help them to increase their access to food					
-course	change income						
-course	change foodsec						
-course	change2 LH						
-course	change2 food_access						
+variable_x	variable_y	category	description	xtitle	ytitle	legendtitle	title	graphtype
+income_source	income_per_member	general	Average monthly income depends a lot on the main source of income and those relying mainly on aid are among those who have the highest monthly income.	Primary source of income	Monthly income (SSP)		Repartition of average monthly income per source of income	violin
+flee_reason	period	general	People who have been displaced for conflict reasons have mainly been displaced for over 2 years while displacements due to flood, or lack of food are more recent.	Reason for displacement			Duration of displacement per reason of displacement	bar
+position 	CBPN_works	protection	Not knowing the geogaphical repartitions of the CBPN it is difficult to say but there seems to be some area of the camps where they seem to work better					map
+hearnews	CBPN_works	protection	"All impressions related to CBPN are related (works, security, understand rôle).
+That being said, we can see that when people trust the CBPN they are more likely to get information through community and DRC staff while when they do not, they get mostly the information through friends, family and outreach activities."	How did you find out about DRC’s and CBPNs activities			Impression that CBPN works according to  how people found out about CBPN activities.	bar
+income_source	hearnews	protection	Source of information is quite different from one main source of income to another. For example small scale traders get their information mostly diretly from DRC staffs while landcultivators (among the most vulnerable according to the income) get their information mainly through community.				How people found out about CBPN/DRC activities according to main source of income.	treemap
+benficiaryresidence	income	general	"In Jamjang people seems to be much poorer and in Malakal people are wealthier.
+However, given that in Malakal all people interviewed are in the camp and given that we saw that people relying on aid have higher average income, this could explain this."	Region	Monthly income (SSP)		Repartition of average monthly income per region	violin
+benficiaryresidence	income_per_member	general	If we look at the monthly income per household member, the difference between Jamjang and Bentiu becomes thinner.		Monthly income per person (SSP)		Repartition of average monthly  income (per family member) per region	violin
+benficiaryresidence	flee_reason	general	In Malakal almost everyone got displaced due to conflict.	Region			Reason for displacement per region	bar
+income_source	benficiaryresidence	general	In Malakal most people rely on aid which explain the difference of income between regions	Primary source of income			Primary source of income per region	bar
+C9 	income	LH						violin
+C9 	income_per_member	LH						violin
+marital	income_per_member	general	Divorced or single families live with significantly less income than widow or married families	Marital status	Monthly income per person (SSP)		Repartition of average monthly  income (per family member) per marital status	violin
+marital	gender HHH	general	While most of the interviewed families have female head, this is even more important among single, divorced and widowed families.	Marital status			Gender of the head of the household per marital status	bar
+residency	employment	general	Host are more likely to be employed or self employed than IDPs or returnees.	Displacement Status			Employment status per displacement status	bar
+residency	income	general	IDPs have often higher income than hosts.	Displacement Status	Monthly income (SSP)		Repartition of average monthly income per displacement status	violin
+know_leader	C16 	LH						bar
+trained_CCCM	CBPN_understand_role	protection	People who received training on CCCM are more likely to think that CBPN understand their rôle	Did the CBPNs fully understand their roles?		Trained on CCCM	How people think CBPN understand their according to whether they received CCCM training or not	bar
+satistaftion CBPN	howlong	protection	The satisfaction with CBPN tends to decrease with the time people spent in the camp	 How would you rate your satisfaction level with the work of the CBPN in your community?		Satisfaction with CBPN according to time spent in the camp		violin
+benficiaryresidence	stopshopmarket_functional	LH	maybe					violin
+benficiaryresidence	stopshopmarket	LH	maybe					violin
+member_SPC	perception LH	LH						bar
+member_SPC	perception food	LH						bar
+member_SPC	educ	LH						bar
+benficiaryresidence	scale income	LH	maybe					bar
+member_EES	scale income	LH						bar
+C9 	scale income	LH						treemap
+C4 	scale income	LH						treemap
+C13 	perception LH	LH						treemap
+C1 	perception LH	LH						treemap
+member_EES	educ	LH	might be good to extend in other part					bar
+attended_CCCM	feel_leader_transp	protection	People who have been trained on CCCM or protection are more likely to believe that their community leadership advocate their interests.	Have you received training from DRC on CCCM and Protection?			How people think their community leadership advocate their interests according to whether they received CCCM training or not	bar
+comp_feed_mech_effect	rlptcomm	protection	 The better the relationship with your community leadership is the more likely people will think the complaint mechanisms are effective.	Do you think the complaint and feedback mechanism <br> used so far is effective and sufficient?			Effectiveness of complaint feedback mechanism according to relationship with community leaders	bar
+comp_feed_mech_effect	feel_leader_transp	protection	Likewise, when people believe their leaders advocate their interestsare more likely to believe the complaint feedback mechanism is effective and sufficient.	Do you think the complaint and feedback mechanism <br> used so far is effective and sufficient?			Effectiveness of complaint feedback mechanism according to the feeling that the community leaders advocate their interests.	bar
+benficiaryresidence	perception LH	LH	maybe					bar
+benficiaryresidence	perception food	LH	maybe					bar
+perception food	howlong	LH						violin
+target_right	C11 	LH						sunburst
+target_right	rlptcomm	protection	 The better the relationship with your community leadership is the more likely people will think the right beneficiaries have been targeted by the project.	In your opinion do you think the right beneficiaries <br> have been receiving support from DRC?			How people think the project targeted the right beneficiaries according to relationship with community leadership	bar
