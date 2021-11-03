@@ -412,7 +412,7 @@ def main():
 			title2.title('General questions')
 			feature=st.sidebar.selectbox('Select the question for which you would like to visualize wordclouds of answers',textgeneral)
 		
-		st.write(questions)
+		#st.write(questions)
 		
 		if topicwc != 'General questions' or 'recomm' not in feature:
 			
