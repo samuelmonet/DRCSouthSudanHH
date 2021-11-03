@@ -10,32 +10,26 @@ However, given that in Malakal all people interviewed are in the camp and given 
 benficiaryresidence	income_per_member	general	If we look at the monthly income per household member, the difference between Jamjang and Bentiu becomes thinner.		Monthly income per person (SSP)		Repartition of average monthly  income (per family member) per region	violin
 benficiaryresidence	flee_reason	general	In Malakal almost everyone got displaced due to conflict.	Region			Reason for displacement per region	bar
 income_source	benficiaryresidence	general	In Malakal most people rely on aid which explain the difference of income between regions	Primary source of income			Primary source of income per region	bar
-C9 	income	LH						violin
-C9 	income_per_member	LH						violin
+C9 	income	LH	There may have been some issues in beneficiary selection as we can see that some of those with the highest income were cash beneficiaries. We can also see that people who have higher income are more likely to use cash for buying livestock, for school or for opening a business.	How did you use the money that you received from the Multipurpose Cash Assistance?	income		How people used their cash according to their average monthly income	violin
+C9 	income_per_member	LH	We see the same as above even if we take the average income per household member	How did you use the money that you received from the Multipurpose Cash Assistance?	income per person		How people used their cash according to their average monthly income per household member	violin
 marital	income_per_member	general	Divorced or single families live with significantly less income than widow or married families	Marital status	Monthly income per person (SSP)		Repartition of average monthly  income (per family member) per marital status	violin
 marital	gender HHH	general	While most of the interviewed families have female head, this is even more important among single, divorced and widowed families.	Marital status			Gender of the head of the household per marital status	bar
 residency	employment	general	Host are more likely to be employed or self employed than IDPs or returnees.	Displacement Status			Employment status per displacement status	bar
 residency	income	general	IDPs have often higher income than hosts.	Displacement Status	Monthly income (SSP)		Repartition of average monthly income per displacement status	violin
-know_leader	C16 	LH						bar
+know_leader	C16 	LH	It seems that among IDPs those who did not know the camp/block leader had less access to business training.	Do you know your camp/block leader			Who received trainings for business according to whether they know the camp/block leader	bar
 trained_CCCM	CBPN_understand_role	protection	People who received training on CCCM are more likely to think that CBPN understand their rôle	Did the CBPNs fully understand their roles?		Trained on CCCM	How people think CBPN understand their according to whether they received CCCM training or not	bar
 satistaftion CBPN	howlong	protection	The satisfaction with CBPN tends to decrease with the time people spent in the camp	 How would you rate your satisfaction level with the work of the CBPN in your community?		Satisfaction with CBPN according to time spent in the camp		violin
-benficiaryresidence	stopshopmarket_functional	LH	maybe					violin
-benficiaryresidence	stopshopmarket	LH	maybe					violin
-member_SPC	perception LH	LH						bar
-member_SPC	perception food	LH						bar
-member_SPC	educ	LH						bar
-benficiaryresidence	scale income	LH	maybe					bar
-member_EES	scale income	LH						bar
-C9 	scale income	LH						treemap
-C4 	scale income	LH						treemap
-C13 	perception LH	LH						treemap
-C1 	perception LH	LH						treemap
-member_EES	educ	LH	might be good to extend in other part					bar
+member_SPC	perception LH	LH	As we saw on the results of ML models. Being part of SPC increases the confidence of beneficiaries in the improvement of their livelihood in the future.	Are you a member of the Seed-Pressing Cooperative generating income			How people imagine their livelihood will change in the future split by member of SPC or not	bar
+member_SPC	perception food	LH	It also increases the confidence of beneficiaries in the improvement of their access to food in the future.	Are you a member of the Seed-Pressing Cooperative generating income			How people imagine their access to food will change in the future split by member of SPC or not	bar
+member_EES	scale income	LH	This did not came out from the ML model, probably because it only concerns very few people. But it looks also like being e member of EESWG had a positive impact.	Are you a member of Energy Efficient Stoves (EES) working group?			Evolution of income since the beginning of the project compared to being a member of EESWG	bar
+C9 	scale income	LH	Most of the people who did not report an increase of income during the project did not receive Multipurpose Cash.				Evolution of income since the beginning of the project according to how people used their cash	bar
+C13 	perception LH	LH	As we saw on the results of ML models. Having received skills trainings increases the confidence of beneficiaries in the improvement of their livelihood in the future.	Skills training received 			How people imagine their livelihood will change in the future split by  skills training received	bar
+C1 	perception LH	LH	As we saw on the results of ML models. Having received agricultural trainings increases the confidence of beneficiaries in the improvement of their livelihood in the future.	Agricultural training received			How people imagine their livelihood will change in the future split by  skills training received	bar
 attended_CCCM	feel_leader_transp	protection	People who have been trained on CCCM or protection are more likely to believe that their community leadership advocate their interests.	Have you received training from DRC on CCCM and Protection?			How people think their community leadership advocate their interests according to whether they received CCCM training or not	bar
 comp_feed_mech_effect	rlptcomm	protection	 The better the relationship with your community leadership is the more likely people will think the complaint mechanisms are effective.	Do you think the complaint and feedback mechanism <br> used so far is effective and sufficient?			Effectiveness of complaint feedback mechanism according to relationship with community leaders	bar
 comp_feed_mech_effect	feel_leader_transp	protection	Likewise, when people believe their leaders advocate their interestsare more likely to believe the complaint feedback mechanism is effective and sufficient.	Do you think the complaint and feedback mechanism <br> used so far is effective and sufficient?			Effectiveness of complaint feedback mechanism according to the feeling that the community leaders advocate their interests.	bar
-benficiaryresidence	perception LH	LH	maybe					bar
-benficiaryresidence	perception food	LH	maybe					bar
-perception food	howlong	LH						violin
-target_right	C11 	LH						sunburst
+benficiaryresidence	perception LH	LH	People from Bentiu are more confident for their livelihood than people from Jamjang (this could be related to the fact that most people from Jamjang are IDPs)	Region			How people imagine their livelihood will change in the future split by  region	bar
+benficiaryresidence	perception food	LH	We can observe the same for the confidence in the access to food for the future.	Region			How people imagine their access to food will change in the future split by region	bar
+perception food	howlong	LH	The less time people have spent where they are the more confident they are in the fact that their access to food will increase in the future.	Because of the project, my household’s access to food will	How long have you lived in this settlement (years)		How people imagine their access to food will change in the future according to time spent in the settlement	violin
+target_right	C11 	LH	It seems that one of the main reason for not having the impression that the project targetted the right beneficiaries seems to be the fact not to have received any NFI from DRC.	Do you think the right beneficiaries have been receiving support from DRC?			Impression of fairness of targeting based on material support received	treemap
 target_right	rlptcomm	protection	 The better the relationship with your community leadership is the more likely people will think the right beneficiaries have been targeted by the project.	In your opinion do you think the right beneficiaries <br> have been receiving support from DRC?			How people think the project targeted the right beneficiaries according to relationship with community leadership	bar
